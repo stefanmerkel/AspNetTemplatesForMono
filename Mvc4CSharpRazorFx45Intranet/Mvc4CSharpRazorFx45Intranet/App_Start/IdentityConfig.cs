@@ -38,7 +38,7 @@ namespace Mvc4CSharpRazorFx45Intranet
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>() as MySQLDatabase));
             // Konfigurieren der Überprüfungslogik für Benutzernamen.
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
